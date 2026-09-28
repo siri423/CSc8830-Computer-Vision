@@ -1,0 +1,21 @@
+image,object,dimension,true_mm,distance_mm,est_mm,error_mm,abs_error_mm,pct_error
+01_popcorn_ACTII.jpeg,ACT II popcorn,length,228.0,2940.0,264.584,36.584,36.584,16.046
+01_popcorn_ACTII.jpeg,ACT II popcorn,width,172.0,2940.0,151.747,-20.253,20.253,11.775
+02_macaroni.jpeg,Elbow macaroni,length,194.0,2940.0,194.547,0.547,0.547,0.282
+02_macaroni.jpeg,Elbow macaroni,width,137.0,2940.0,151.747,14.747,14.747,10.764
+03_saltine.jpeg,Saltine crackers,length,266.0,2940.0,202.329,-63.671,63.671,23.936
+03_saltine.jpeg,Saltine crackers,width,122.0,2940.0,124.51,2.51,2.51,2.058
+04_amazon_basics.jpeg,Amazon Basics,length,261.0,2940.0,233.457,-27.543,27.543,10.553
+04_amazon_basics.jpeg,Amazon Basics,width,207.0,2940.0,163.42,-43.58,43.58,21.053
+05_brown_box.jpeg,Brown cardboard,length,293.0,2940.0,272.366,-20.634,20.634,7.042
+05_brown_box.jpeg,Brown cardboard,width,266.0,2940.0,241.239,-24.761,24.761,9.309
+06_pink_box.jpeg,Pink box,length,182.0,2940.0,163.42,-18.58,18.58,10.209
+06_pink_box.jpeg,Pink box,width,128.0,2940.0,132.292,4.292,4.292,3.353
+07_mac_and_cheese.jpeg,Mac and cheese,length,190.0,2940.0,155.638,-34.362,34.362,18.085
+07_mac_and_cheese.jpeg,Mac and cheese,width,93.0,2940.0,85.601,-7.399,7.399,7.956
+08_rice_krispies.jpeg,Rice Krispies,length,127.0,2940.0,108.947,-18.053,18.053,14.215
+08_rice_krispies.jpeg,Rice Krispies,width,75.0,2940.0,77.819,2.819,2.819,3.759
+09_white_notepad.jpeg,White notepad,length,179.0,2940.0,178.984,-0.016,0.016,0.009
+09_white_notepad.jpeg,White notepad,width,129.0,2940.0,97.274,-31.726,31.726,24.594
+10_maxithins.jpeg,Maxithins box,length,110.0,2940.0,116.728,6.728,6.728,6.117
+10_maxithins.jpeg,Maxithins box,width,81.0,2940.0,89.492,8.492,8.492,10.484

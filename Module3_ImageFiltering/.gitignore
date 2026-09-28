@@ -1,0 +1,15 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+env/
+
+# OS
+.DS_Store
+
+# Streamlit
+.streamlit/secrets.toml
+
+# Keep outputs/ and data/ in the repo (they hold the result figures + sample
+# image used by the report), but ignore large scratch files if any appear.
