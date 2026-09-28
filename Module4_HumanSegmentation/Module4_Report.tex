@@ -20,8 +20,8 @@ with Classical Computer Vision}
 This module outlines a person in a normal colour (RGB) image and in a thermal
 (infrared) image using classical OpenCV only. The segmentation uses
 thresholding, morphology, connected components, contours and GrabCut, with no
-deep learning or machine learning. Each result is then placed next to the
-Segment Anything model, the reference the assignment asks us to compare against.
+deep learning or machine learning. Each result is then placed next to SAM2 (the
+Segment Anything Model 2), the reference the assignment asks us to compare against.
 Section~\ref{sec:theory} works through, with derivations, how edge detection and
 region segmentation can be done in the Fourier (frequency) domain. A Streamlit
 web application makes every part reachable and lets the reader run the methods on
@@ -40,7 +40,7 @@ their own images.
 \midrule
 Q1, human boundary in an RGB image (classical) & \texttt{src/rgb\_segment.py}, app tab RGB \\
 Q2, human boundary in a thermal image (classical) & \texttt{src/thermal\_segment.py}, app tab Thermal \\
-Comparison with SAM & \texttt{src/compare.py}, Section~\ref{sec:compare}, app tab Compare \\
+Comparison with SAM2 & \texttt{src/compare.py}, Section~\ref{sec:compare}, app tab Compare \\
 Q3, Fourier theory for edges and regions & Section~\ref{sec:theory}, \texttt{src/fourier.py}, app tab Theory \\
 Web application demo & \texttt{app.py} (Streamlit) \\
 \bottomrule
@@ -100,10 +100,10 @@ the background removed image. The pedestrian is outlined from head to feet while
 the warm building windows are ignored.}
 \end{figure}
 
-\section{Comparison with SAM}\label{sec:compare}
-We compare each classical mask against the Segment Anything demo run with the
-text prompt \texttt{person}. SAM is used only as the reference; our own code never
-uses it. We report three numbers: the Intersection over Union (IoU, Jaccard), the
+\section{Comparison with SAM2}\label{sec:compare}
+We compare each classical mask against SAM2, the Segment Anything Model 2. We run
+SAM2 through its image predictor demo and prompt it with a single foreground point
+on the person. SAM2 is used only as the reference; our own code never uses it. We report three numbers: the Intersection over Union (IoU, Jaccard), the
 Dice coefficient (F1), and a boundary F-score that matches the two outlines
 within a two pixel tolerance. The boundary F-score is the one that speaks
 directly to exact boundary quality.
@@ -114,30 +114,30 @@ directly to exact boundary quality.
 \toprule
 \textbf{Image} & \textbf{IoU} & \textbf{Dice} & \textbf{Boundary-F @2px} \\
 \midrule
-RGB (astronaut)      & 0.68 & 0.81 & 0.52 \\
-Thermal (pedestrian) & 0.82 & 0.90 & 0.95 \\
+RGB (astronaut)      & 0.65 & 0.79 & 0.33 \\
+Thermal (pedestrian) & 0.76 & 0.86 & 0.96 \\
 \bottomrule
 \end{tabular}
-\caption{Agreement of our classical masks with SAM.}
+\caption{Agreement of our classical masks with SAM2.}
 \end{table}
 
 \begin{figure}[h]
 \centering
 \includegraphics[width=\linewidth]{outputs/rgb_compare.png}\\[4pt]
 \includegraphics[width=\linewidth]{outputs/thermal_compare.png}
-\caption{Blue is our classical boundary, green is SAM. Top row is the RGB image,
+\caption{Blue is our classical boundary, green is SAM2. Top row is the RGB image,
 bottom row is the thermal image.}
 \end{figure}
 
-On the thermal image the classical pipeline almost matches SAM, with an IoU of
-$0.82$ and a boundary F-score of $0.95$. A warm body against a cool background is
+On the thermal image the classical pipeline almost matches SAM2, with an IoU of
+$0.76$ and a boundary F-score of $0.96$. A warm body against a cool background is
 a high contrast case that thresholding handles well. On the RGB image the
-classical result is weaker, with an IoU of $0.68$ and a boundary F-score of
-$0.52$. GrabCut recovers the person as a whole, but where foreground and
+classical result is weaker, with an IoU of $0.65$ and a boundary F-score of
+$0.33$. GrabCut recovers the person as a whole, but where foreground and
 background colours are similar, such as hair against the beige backdrop or the
-arm against the suit, its boundary drifts, while SAM tracks the true edge. This
+arm against the suit, its boundary drifts, while SAM2 tracks the true edge. This
 is the trade off the exercise is about: classical methods are simple and need no
-training, while a learned model like SAM follows hard boundaries that colour or
+training, while a learned model like SAM2 follows hard boundaries that colour or
 intensity cues alone cannot resolve.
 
 \section{Q3: Edge detection and region segmentation in the Fourier domain}
@@ -252,11 +252,10 @@ python -m src.fourier          --image data/person_rgb.png
 
 \textbf{Data.} RGB: the public domain \texttt{astronaut} image (NASA astronaut
 Eileen Collins) from scikit-image. Thermal: a frame from the OSU Thermal
-Pedestrian Database (OTCBVS Benchmark). \textbf{Note on SAM.} SAM2's checkpoints
-and demo were not reachable from the machine used to build this, so the reference
-is the SAM3 demo, the current model in the same Segment Anything family, run with
-the prompt \texttt{person}. The comparison does not depend on the exact version
-and can be redone with the official SAM2 demo (see the README).
+Pedestrian Database (OTCBVS Benchmark). \textbf{Note on SAM2.} SAM2 was run
+through its public image predictor demo, prompted with a single foreground point
+on the person, and the resulting mask was used as the reference. The exact steps
+are in the README.
 
 \begin{thebibliography}{9}
 \bibitem{grabcut} C.\ Rother, V.\ Kolmogorov, A.\ Blake,

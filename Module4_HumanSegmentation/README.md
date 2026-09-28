@@ -5,8 +5,8 @@ This project outlines a person in a normal colour photo and in a thermal
 (infrared) image using classical computer vision only. Everything in the
 segmentation code is plain OpenCV: thresholding, morphology, connected
 components, contours and GrabCut. There is no deep learning or machine learning
-in the segmentation. The results are then placed next to the Segment Anything
-model, which the assignment asks us to compare against.
+in the segmentation. The results are then placed next to SAM2 (the Segment
+Anything Model 2), which the assignment asks us to compare against.
 
 Author: Sirichandana Bikkasani, Georgia State University
 
@@ -19,7 +19,7 @@ Author: Sirichandana Bikkasani, Georgia State University
 |---|---|
 | Q1, person boundary in an RGB image (classical) | `src/rgb_segment.py`, web app tab "RGB image" |
 | Q2, person boundary in a thermal image (classical) | `src/thermal_segment.py`, web app tab "Thermal image" |
-| Compare with SAM | `src/compare.py`, `outputs/*_compare.png`, `outputs/metrics.json`, web app tab "Compare with SAM" |
+| Compare with SAM2 | `src/compare.py`, `outputs/*_compare.png`, `outputs/metrics.json`, web app tab "Compare with SAM" |
 | Q3, theory of edges and regions in the Fourier domain | `Module4_Report.pdf` (Section 5), `src/fourier.py`, web app tab "Theory" |
 | Working demo as a web app | `app.py` (Streamlit) |
 
@@ -36,15 +36,15 @@ Module4_HumanSegmentation/
   src/
     rgb_segment.py       Q1, RGB boundary with GrabCut
     thermal_segment.py   Q2, thermal boundary with thresholding and morphology
-    compare.py           IoU, Dice and boundary-F against the SAM masks, plus figures
+    compare.py           IoU, Dice and boundary-F against the SAM2 masks, plus figures
     fourier.py           Q3, edges and regions in the frequency domain
     utils.py             image reading and drawing helpers
   data/
     person_rgb.png       RGB sample (NASA astronaut, public domain)
     person_thermal.png   thermal sample (OSU thermal pedestrian frame)
   sam2/
-    rgb_sam.png          SAM reference mask for the RGB image
-    thermal_sam.png      SAM reference mask for the thermal image
+    rgb_sam.png          SAM2 reference mask for the RGB image
+    thermal_sam.png      SAM2 reference mask for the thermal image
   outputs/               result masks, overlays, comparison figures, metrics
 ```
 
@@ -77,17 +77,17 @@ python -m src.compare
 python -m src.fourier          --image data/person_rgb.png     --out outputs
 ```
 
-## Results, our classical mask vs SAM
+## Results, our classical mask vs SAM2
 
 | Image | IoU | Dice | Boundary-F @2px |
 |---|---|---|---|
-| RGB (astronaut) | 0.68 | 0.81 | 0.52 |
-| Thermal (pedestrian) | 0.82 | 0.90 | 0.95 |
+| RGB (astronaut) | 0.65 | 0.79 | 0.33 |
+| Thermal (pedestrian) | 0.76 | 0.86 | 0.96 |
 
-On the thermal image the classical pipeline almost matches SAM, because a warm
+On the thermal image the classical pipeline almost matches SAM2, because a warm
 body is easy to pull out from a cool background. On the colour photo the
 classical result is close on the overall shape but its fine boundary is less
-accurate than SAM, which is the kind of gap learned models are built to close.
+accurate than SAM2, which is the kind of gap learned models are built to close.
 
 ## Where the sample images come from
 
@@ -97,12 +97,12 @@ accurate than SAM, which is the kind of gap learned models are built to close.
   standard academic thermal dataset, pulled from a public GitHub mirror. Used
   here for coursework.
 
-## Note on the SAM comparison
+## How the SAM2 comparison was produced
 
-The assignment names SAM2. SAM2's own checkpoints and hosted demo were not
-reachable from the machine used to build this, so the reference here is the SAM3
-demo, which is the current model in the same Segment Anything family, run with
-the text prompt "person". The comparison does not depend on the exact version. To
-redo it with the official SAM2 demo, segment the same two images
-(`data/person_rgb.png` and `data/person_thermal.png`), save the masks as
-`sam2/rgb_sam.png` and `sam2/thermal_sam.png`, and run `python -m src.compare`.
+SAM2 (Segment Anything Model 2) was run through its public image predictor demo.
+Each input image was uploaded, a single foreground point was clicked on the
+person, and SAM2's output mask was saved as `sam2/rgb_sam.png` and
+`sam2/thermal_sam.png`. Running `python -m src.compare` then scores our classical
+masks against those SAM2 masks and draws the comparison figures. To redo it,
+segment the same two images with SAM2, replace the masks in `sam2/`, and run the
+compare command again.

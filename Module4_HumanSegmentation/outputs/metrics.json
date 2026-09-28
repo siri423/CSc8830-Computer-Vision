@@ -1,14 +1,14 @@
 [
   {
     "image": "rgb",
-    "IoU": 0.683,
-    "Dice": 0.8117,
-    "BoundaryF@2px": 0.5178
+    "IoU": 0.6479,
+    "Dice": 0.7863,
+    "BoundaryF@2px": 0.3347
   },
   {
     "image": "thermal",
-    "IoU": 0.8215,
-    "Dice": 0.902,
-    "BoundaryF@2px": 0.9453
+    "IoU": 0.7575,
+    "Dice": 0.862,
+    "BoundaryF@2px": 0.9574
   }
 ]

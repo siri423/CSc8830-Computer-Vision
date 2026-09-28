@@ -120,21 +120,21 @@ st.markdown(
     f'<span class="legend" style="background:{ACCENT}22;color:{ACCENT};">'
     f'Blue = our classical result</span>'
     f'<span class="legend" style="background:{SAM_HEX}22;color:{SAM_HEX};">'
-    f'Green = SAM reference</span>', unsafe_allow_html=True)
+    f'Green = SAM2 reference</span>', unsafe_allow_html=True)
 
 with st.sidebar:
     st.header("About")
     st.write("This app finds the outline of a person in a colour photo and in a "
              "thermal image using classical computer vision only. No deep "
-             "learning is used for the segmentation. The Segment Anything model "
-             "is shown alongside as a reference.")
+             "learning is used for the segmentation. SAM2 (the Segment Anything "
+             "Model 2) is shown alongside as a reference.")
     st.write("Use the built-in samples, or upload your own image on the RGB, "
              "Thermal and Theory tabs.")
     st.divider()
     st.caption("Built with OpenCV, NumPy and Streamlit.")
 
 tabs = st.tabs(["Overview", "RGB image (Q1)", "Thermal image (Q2)",
-                "Compare with SAM", "Theory (Q3)"])
+                "Compare with SAM2", "Theory (Q3)"])
 
 # Overview
 with tabs[0]:
@@ -144,7 +144,7 @@ with tabs[0]:
              "thermal image it is based on how warm the body is compared with "
              "the ground. Both methods use classical OpenCV only.")
 
-    st.subheader("How our results line up with SAM")
+    st.subheader("How our results line up with SAM2")
     mpath = os.path.join(OUT, "metrics.json")
     if os.path.exists(mpath):
         with open(mpath) as f:
@@ -152,17 +152,17 @@ with tabs[0]:
         st.table({m["image"].upper(): {"IoU": m["IoU"], "Dice": m["Dice"],
                                        "Boundary-F @2px": m["BoundaryF@2px"]}
                   for m in metrics})
-    st.write("On the thermal image the classical method almost matches SAM, "
+    st.write("On the thermal image the classical method almost matches SAM2, "
              "because a warm body stands out clearly from a cool background. On "
              "the colour photo it captures the person but the fine edge is less "
-             "accurate than SAM, which is the kind of case learned models handle "
+             "accurate than SAM2, which is the kind of case learned models handle "
              "better.")
 
     st.subheader("Where each requirement lives")
     st.markdown("""
 - **Q1, RGB boundary** — the *RGB image* tab and `src/rgb_segment.py`
 - **Q2, thermal boundary** — the *Thermal image* tab and `src/thermal_segment.py`
-- **Compare with SAM** — the *Compare with SAM* tab and `src/compare.py`
+- **Compare with SAM2** — the *Compare with SAM2* tab and `src/compare.py`
 - **Q3, Fourier theory** — the *Theory* tab, `src/fourier.py`, and the report PDF
 """)
 
@@ -200,9 +200,9 @@ with tabs[2]:
 
 # Q3 Compare
 with tabs[3]:
-    st.subheader("Comparison with SAM")
-    st.write("Our classical outline is drawn in blue and the Segment Anything "
-             "outline in green on the same image. SAM is only the reference the "
+    st.subheader("Comparison with SAM2")
+    st.write("Our classical outline is drawn in blue and the SAM2 "
+             "outline in green on the same image. SAM2 is only the reference the "
              "assignment asks us to compare against; our own code never uses it.")
     mpath = os.path.join(OUT, "metrics.json")
     if os.path.exists(mpath):
@@ -214,7 +214,7 @@ with tabs[3]:
     for name, title in [("rgb", "RGB"), ("thermal", "Thermal")]:
         p = os.path.join(OUT, f"{name}_compare.png")
         if os.path.exists(p):
-            st.image(p, caption=f"{title}: blue is our result, green is SAM",
+            st.image(p, caption=f"{title}: blue is our result, green is SAM2",
                      use_container_width=True)
 
 # Q3 Theory
