@@ -43,6 +43,39 @@ def get_api_key() -> str | None:
     return str(key).strip() if key else None
 
 
+def explain_api_error(error: Exception) -> str:
+    """Turn common Gemini service errors into clear next steps."""
+    detail = str(error).lower()
+    if "prepayment" in detail or "payment_required" in detail or "402" in detail:
+        return (
+            "Gemini rejected the request because the linked project has no usable "
+            "prepaid API credits. Check the project’s Billing page in Google AI "
+            "Studio. Add credits if you want to use this paid project, or choose "
+            "a project and model with an available free tier. A new key for the "
+            "same project will not restore its balance."
+        )
+    if "429" in detail or "rate_limit" in detail or "resource_exhausted" in detail:
+        return (
+            "Gemini reported a usage limit for this project. Check its limits in "
+            "Google AI Studio and try again after the limit resets, or use a "
+            "shorter clip."
+        )
+    if "401" in detail or "unauthenticated" in detail or "invalid api key" in detail:
+        return (
+            "Gemini did not accept the API key. Check that GEMINI_API_KEY in "
+            "Streamlit Secrets belongs to a project with Gemini API access."
+        )
+    if "403" in detail or "permission_denied" in detail:
+        return (
+            "Gemini denied access to this model or project. Check the model and "
+            "API access settings in Google AI Studio."
+        )
+    return (
+        "Gemini could not complete the request. Check the model access and "
+        "service status, then try a short MP4 or MOV clip."
+    )
+
+
 def file_state_name(file_obj) -> str:
     state = getattr(file_obj, "state", None)
     return str(getattr(state, "name", state or "")).upper()
@@ -176,7 +209,11 @@ if upload is not None:
         if run_analysis:
             try:
                 with st.status("Sending the video to Gemini…", expanded=True) as status:
-                    answer = analyze_video(video_bytes, upload.name, question, api_key)
+                    try:
+                        answer = analyze_video(video_bytes, upload.name, question, api_key)
+                    except Exception:
+                        status.update(label="Gemini request did not complete", state="error", expanded=False)
+                        raise
                     status.update(label="Analysis finished", state="complete", expanded=False)
                 st.session_state["clipcheck_answer"] = answer
                 st.session_state["clipcheck_filename"] = upload.name
@@ -188,11 +225,13 @@ if upload is not None:
             except TimeoutError as error:
                 st.error(str(error))
             except Exception as error:
-                st.error(
-                    "Gemini could not complete this request. Check the API key, "
-                    "model access and usage limits, then try a short MP4 or MOV clip. "
-                    f"Details: {type(error).__name__}: {error}"
-                )
+                message = explain_api_error(error)
+                st.error(message)
+                if "prepaid API credits" in message:
+                    st.link_button(
+                        "Open Google AI Studio projects and billing",
+                        "https://aistudio.google.com/projects",
+                    )
 
 if (
     upload is not None
