@@ -6,13 +6,13 @@
 
 3. Run the app once with a short clip you are allowed to share. Follow the local setup in this folder’s README. Check the answer against the video. The first run should give you real output for the feasibility slide; do not invent a result if the API is unavailable.
 
-4. For Streamlit Community Cloud, create a new app from `siri423/CSc8830-Computer-Vision`, branch `main`, with `Week5_Challenge/app.py` as the app file. In the app’s settings, add this secret:
+4. The app is deployed at [csc8830-week5-clipcheck.streamlit.app](https://csc8830-week5-clipcheck.streamlit.app). In its Streamlit Community Cloud settings, open **Secrets** and add this secret:
 
    ```toml
    GEMINI_API_KEY = "your-key-here"
    ```
 
-   Keep the secret in Streamlit’s settings only. Do not add it to the repository.
+   Keep the secret in Streamlit’s settings only. Do not add it to the repository. The app will restart after the secret saves.
 
 5. Open `output/Week5_Challenge1_VideoGrounding.pptx`. Update the feasibility slide with what happened when you ran the model, including the clip length and whether the approximate timestamps matched your own review. Keep the deck to three slides.
 
