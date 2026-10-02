@@ -4,7 +4,7 @@
 
 2. Create a Gemini API key at [Google AI Studio](https://aistudio.google.com/app/apikey). Keep the key private. Do not paste it into chat, source code, GitHub, or the slide deck.
 
-3. Run the app once with a short clip you are allowed to share. Follow the local setup in this folder’s README. Check the answer against the video. The first run should give you real output for the feasibility slide; do not invent a result if the API is unavailable.
+3. The app has returned a successful result for a seven-second warehouse clip: Gemini reported 00:00–00:07 and described a worker checking shelves and using a tablet. The manual reference interval and boundary errors have not been measured, so do not present numeric accuracy claims.
 
 4. The app is deployed at [csc8830-week5-clipcheck.streamlit.app](https://csc8830-week5-clipcheck.streamlit.app). In its Streamlit Community Cloud settings, open **Secrets** and add this secret:
 
@@ -14,7 +14,7 @@
 
    Keep the secret in Streamlit’s settings only. Do not add it to the repository. The app will restart after the secret saves.
 
-5. Use `output/Week5_Challenge1_Presentation.pptx` for the submission. Read `recording_script.md` while preparing your three-minute screen recording. Replace the bracketed script values with the actual Gemini response and your manual timestamp comparison. Keep the deck to three slides.
+5. Use `output/Week5_Challenge1_Presentation_v2.pptx` for the submission. Read `recording_script.md` while preparing your three-minute screen recording. Keep the deck to three slides. Add one personal takeaway from the keynote after watching it in class.
 
 6. Upload the PowerPoint file to the Week 5 Challenge assignment in Google Classroom before the deadline. The GitHub repository is [CSc8830-Computer-Vision](https://github.com/siri423/CSc8830-Computer-Vision).
 

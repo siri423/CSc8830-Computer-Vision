@@ -18,11 +18,11 @@ Keynote 6 is Fahad Khan’s “Towards Detailed Video Understanding in Generativ
 
 The app accepts a video and a natural-language question. It uploads the clip to Gemini, waits for video processing, asks the model to find the person-visible interval, and displays a text answer with approximate timestamps. It also lets the user download the answer. The current interface accepts MP4, MOV, AVI, WebM, MPEG, and 3GP files up to 20 MB.
 
-The app is deployed at [csc8830-week5-clipcheck.streamlit.app](https://csc8830-week5-clipcheck.streamlit.app). Its source and dependencies are in [`Week5_Challenge`](https://github.com/siri423/CSc8830-Computer-Vision/tree/main/Week5_Challenge). The deployed interface loads and reads the configured Streamlit secret. A successful model response still needs to be recorded with a test clip before reporting a measured result.
+The app is deployed at [csc8830-week5-clipcheck.streamlit.app](https://csc8830-week5-clipcheck.streamlit.app). Its source and dependencies are in [`Week5_Challenge`](https://github.com/siri423/CSc8830-Computer-Vision/tree/main/Week5_Challenge). The deployed app returned a successful response for a seven-second warehouse clip.
 
 ## Feasibility check
 
-Use a clip with a clear person-visible event. Watch the clip and mark the first and last times the person is visible. Ask Gemini for the same interval, then compare the result with the manual reference.
+For the demonstration, Gemini returned a person-visible interval and description for the warehouse clip. A manual interval still needs to be marked by reviewing the full clip before calculating timestamp error. The available screenshots show the person at 00:00 and 00:01; these frames alone do not establish the full reference interval.
 
 For the start and end points, calculate absolute timestamp error:
 
@@ -35,11 +35,13 @@ Also record whether Gemini identified the intended person and described the visi
 
 | Measure | Observed result |
 |---|---|
-| Clip length | Add after test |
-| Gemini interval | Add after test |
-| Manually reviewed interval | Add after test |
-| Start and end error | Add after test |
-| Person and action identified correctly | Add after test |
+| Clip length | 7 seconds |
+| Gemini interval | 00:00–00:07 |
+| Gemini description | A worker in a warehouse checks the shelves and interacts with a tablet. |
+| Model call | Completed successfully; result shown in the app screenshot |
+| Manually reviewed interval | Not recorded; review the full clip before presenting a reference interval |
+| Start and end error | Not measured |
+| Person and action identified correctly | The screenshots at 00:00 and 00:01 show the person and warehouse setting; full-clip action verification remains a manual check |
 
 ## Data handling
 

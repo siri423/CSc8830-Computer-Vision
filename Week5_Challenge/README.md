@@ -8,9 +8,9 @@ Keynote 6 was Fahad Khan’s “Towards Detailed Video Understanding in Generati
 
 The Streamlit app sends one short video and a text question to Gemini. It asks for an approximate time range when the main person is clearly visible, a brief description, and visual evidence. The answer is text with estimated timestamps. It does not create a segmentation mask, track a person across frames, or establish ground truth.
 
-The app is deployed at [csc8830-week5-clipcheck.streamlit.app](https://csc8830-week5-clipcheck.streamlit.app). The deployed page loads with a Gemini API key configured. Record a real model response and compare its timestamps with a manual review before reporting a measured result. Uploads are limited to 20 MB. Gemini must finish processing a video before answering, and processing time depends on the clip and service availability.
+The app is deployed at [csc8830-week5-clipcheck.streamlit.app](https://csc8830-week5-clipcheck.streamlit.app). A successful response was returned for a seven-second warehouse clip: Gemini reported 00:00–00:07 and described a worker checking shelves and using a tablet. The manual reference interval and timestamp error have not been measured. Uploads are limited to 20 MB. Gemini must finish processing a video before answering, and processing time depends on the clip and service availability.
 
-The folder also contains the [three-slide presentation](output/Week5_Challenge1_Presentation.pptx), [three-minute recording script](recording_script.md), [project report](REPORT.md), and [submission guide](SUBMISSION_GUIDE.md).
+The folder also contains the [three-slide presentation](output/Week5_Challenge1_Presentation_v2.pptx), [three-minute recording script](recording_script.md), [project report](REPORT.md), and [submission guide](SUBMISSION_GUIDE.md).
 
 ## Run locally
 

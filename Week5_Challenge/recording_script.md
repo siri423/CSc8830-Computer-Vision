@@ -1,6 +1,6 @@
 # Three-minute presentation and app demo
 
-Keep the three slides on screen for the first part, then switch to the live app. Replace the bracketed values after one successful run. Do not read the bracketed instructions aloud.
+Keep the three slides on screen for the first part, then switch to the live app. The example result below is from the successful run shown in the app. Before recording, replay the full clip if you want to report a manual timestamp comparison.
 
 ## 0:00–0:45 | Slide 1: Problem
 
@@ -16,7 +16,7 @@ Keep the three slides on screen for the first part, then switch to the live app.
 
 ## 1:25–1:50 | Slide 3: Prototype and feasibility
 
-“The app is deployed in Streamlit. To check feasibility, compare Gemini’s start and end times with an interval marked by watching the same clip. Record the difference in seconds, and check whether the model described the correct person and action. I’ll show one example now.”
+"The app is deployed in Streamlit. I tested it with a seven-second warehouse clip. Gemini returned an interval from 00:00 to 00:07 and described a worker checking the shelves and using a tablet. That shows the video question and response flow works. To measure timestamp accuracy, I would mark the first and last visible frames myself and compare those times with Gemini’s answer. I have not recorded that manual interval yet, so I won’t claim a numeric timing error."
 
 ## 1:50–2:40 | Live app demonstration
 
@@ -24,11 +24,11 @@ Keep the three slides on screen for the first part, then switch to the live app.
 
 **After the result appears, say:**
 
-“For this clip, Gemini returned approximately **[start time] to [end time]** and described **[brief description from the answer]**. My manual review puts the person-visible interval at **[reference start] to [reference end]**. The start-time difference is **[number] seconds**, and the end-time difference is **[number] seconds**. **[Say whether the model identified the correct person and action.]**”
+"For this seven-second clip, Gemini returned 00:00 to 00:07 and described a worker in a warehouse checking the inventory shelves and interacting with a tablet. The person is visible in the opening frames. A full manual timestamp comparison is still needed before I can report how close those boundaries are."
 
 ## 2:40–3:00 | Close
 
-“This run tests whether a video question can make a person easier to locate in a clip. The result gives a reviewer a place to start, and the timestamp comparison shows how closely that answer matched the video. Thank you.”
+"This run shows that a video question can return a candidate time range and a description that a reviewer can check. A larger test with manually marked intervals would be needed to measure how consistently the timestamps match. Thank you."
 
 ## If the model call fails
 
@@ -39,5 +39,5 @@ Do not read the result paragraph above. Say: “The app is deployed, but this ru
 - Watch Keynote 6 in class and add one takeaway in your own words before presenting.
 - Use a short MP4 or MOV clip under 20 MB. Choose a clip you have permission to share.
 - Open [the deployed app](https://csc8830-week5-clipcheck.streamlit.app) before recording and make sure the API key is configured in Streamlit Secrets.
-- Check the consent box, run one real analysis, and fill in the bracketed values above.
+- Check the consent box and show the successful result. If you manually review the full clip, add the reference interval and calculate each boundary difference before recording.
 - Keep the recording near three minutes. Leave enough time for the model to respond, or trim the upload/setup pause during editing.
