@@ -14,6 +14,8 @@
 
    Keep the secret in Streamlit’s settings only. Do not add it to the repository. The app will restart after the secret saves.
 
-5. Open `output/Week5_Challenge1_VideoGrounding.pptx`. Update the feasibility slide with what happened when you ran the model, including the clip length and whether the approximate timestamps matched your own review. Keep the deck to three slides.
+5. Use `output/Week5_Challenge1_Presentation.pptx` for the submission. Read `recording_script.md` while preparing your three-minute screen recording. Replace the bracketed script values with the actual Gemini response and your manual timestamp comparison. Keep the deck to three slides.
 
 6. Upload the PowerPoint file to the Week 5 Challenge assignment in Google Classroom before the deadline. The GitHub repository is [CSc8830-Computer-Vision](https://github.com/siri423/CSc8830-Computer-Vision).
+
+The project summary and feasibility worksheet are in [`REPORT.md`](REPORT.md).

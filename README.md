@@ -15,19 +15,21 @@ Author: Sirichandana Bikkasani
 | 4 | Finding the boundary of a human in RGB and thermal images | [Module4_HumanSegmentation](Module4_HumanSegmentation) |
 | 5 | Finding a person in a video with Gemini | [Week5_Challenge](Week5_Challenge) |
 
-Each folder has its own README with the details, the report PDF, and a Streamlit
-web app (`app.py`).
+Each project folder has a README and a Streamlit app. Reports and presentations
+are included where the assignment calls for them.
 
-Week 5 includes a three-slide presentation and a Streamlit prototype that uses
-the Gemini API. Add the API key through Streamlit Secrets before running it;
-see [the Week 5 setup guide](Week5_Challenge/SUBMISSION_GUIDE.md).
+Week 5 includes a three-slide presentation, a three-minute demo script, a short
+report, and a Streamlit prototype that uses the Gemini API. See the [Week 5
+folder](Week5_Challenge) for the files and setup guide.
 
-## Live web app (Module 4)
+## Live web apps
 
-The Module 4 app is deployed here: https://csc8830-module4-human-seg.streamlit.app
+| Assignment | App |
+|---|---|
+| Module 4 | [Human Segmentation](https://csc8830-module4-human-seg.streamlit.app) |
+| Week 5 | [ClipCheck Video Understanding](https://csc8830-week5-clipcheck.streamlit.app) |
 
-The Week 5 app is deployed here: https://csc8830-week5-clipcheck.streamlit.app
-Add a `GEMINI_API_KEY` secret in the app settings before running a video analysis.
+The Week 5 app reads `GEMINI_API_KEY` from its Streamlit Secrets settings.
 
 ## Running any module locally
 
