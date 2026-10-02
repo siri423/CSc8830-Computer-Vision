@@ -18,9 +18,8 @@ Author: Sirichandana Bikkasani
 Each project folder has a README and a Streamlit app. Reports and presentations
 are included where the assignment calls for them.
 
-Week 5 includes a three-slide presentation, a three-minute demo script, a short
-report, and a Streamlit prototype that uses the Gemini API. See the [Week 5
-folder](Week5_Challenge) for the files and setup guide.
+Week 5 includes a three-slide presentation, a project report, and a Streamlit
+prototype that uses the Gemini API. See the [Week 5 folder](Week5_Challenge).
 
 ## Live web apps
 

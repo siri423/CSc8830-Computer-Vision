@@ -12,7 +12,7 @@ Finding a person or event in a longer clip often requires repeated scrubbing. Th
 
 ## Keynote connection
 
-Keynote 6 is Fahad Khan’s “Towards Detailed Video Understanding in Generative AI Era.” The workshop description covers detailed visual semantics and spatiotemporal grounding conditioned on text. This prototype narrows that direction to a time retrieval question about a person in a short clip. Gemini is the model selected for implementation; it is not presented as the model used in the keynote. A personal takeaway from watching the talk in class should be added before the presentation.
+Keynote 6 is Fahad Khan’s “Towards Detailed Video Understanding in Generative AI Era.” The workshop description covers detailed visual semantics and spatiotemporal grounding conditioned on text. This prototype narrows that direction to a time retrieval question about a person in a short clip. Gemini is the model selected for implementation; it is not presented as the model used in the keynote.
 
 ## Prototype
 
