@@ -1,0 +1,3 @@
+streamlit>=1.30
+# Video understanding through the Gemini Interactions API requires SDK 2.21.0 or newer.
+google-genai>=2.21.0,<3
