@@ -14,7 +14,7 @@
 
    Keep the secret in Streamlit’s settings only. Do not add it to the repository. The app will restart after the secret saves.
 
-5. Use `output/Week5_Challenge1_Presentation_v2.pptx` for the submission. Read `recording_script.md` while preparing your three-minute screen recording. Keep the deck to three slides. Add one personal takeaway from the keynote after watching it in class.
+5. Use `output/Week5_Challenge1_Presentation_v5.pptx` for the submission. Read `recording_script.md` while preparing your three-minute screen recording. Keep the deck to three slides. Add one personal takeaway from the keynote after watching it in class.
 
 6. Upload the PowerPoint file to the Week 5 Challenge assignment in Google Classroom before the deadline. The GitHub repository is [CSc8830-Computer-Vision](https://github.com/siri423/CSc8830-Computer-Vision).
 

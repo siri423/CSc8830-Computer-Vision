@@ -10,7 +10,7 @@ The Streamlit app sends one short video and a text question to Gemini. It asks f
 
 The app is deployed at [csc8830-week5-clipcheck.streamlit.app](https://csc8830-week5-clipcheck.streamlit.app). A successful response was returned for a seven-second warehouse clip: Gemini reported 00:00–00:07 and described a worker checking shelves and using a tablet. The manual reference interval and timestamp error have not been measured. Uploads are limited to 20 MB. Gemini must finish processing a video before answering, and processing time depends on the clip and service availability.
 
-The folder also contains the [three-slide presentation](output/Week5_Challenge1_Presentation_v2.pptx), [three-minute recording script](recording_script.md), [project report](REPORT.md), and [submission guide](SUBMISSION_GUIDE.md).
+The folder also contains the [three-slide presentation](output/Week5_Challenge1_Presentation_v5.pptx), [three-minute recording script](recording_script.md), [project report](REPORT.md), and [submission guide](SUBMISSION_GUIDE.md).
 
 ## Run locally
 
