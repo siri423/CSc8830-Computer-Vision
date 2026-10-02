@@ -26,7 +26,8 @@ see [the Week 5 setup guide](Week5_Challenge/SUBMISSION_GUIDE.md).
 
 The Module 4 app is deployed here: https://csc8830-module4-human-seg.streamlit.app
 
-The Week 5 app needs its own Streamlit deployment and a `GEMINI_API_KEY` secret.
+The Week 5 app is deployed here: https://csc8830-week5-clipcheck.streamlit.app
+Add a `GEMINI_API_KEY` secret in the app settings before running a video analysis.
 
 ## Running any module locally
 
