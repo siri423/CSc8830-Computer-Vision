@@ -32,6 +32,7 @@ See [Module 6](Module6_OpticalFlow_SfM) for setup and required video inputs.
 |---|---|
 | Module 4 | [Human Segmentation](https://csc8830-module4-human-seg.streamlit.app) |
 | Week 5 | [ClipCheck Video Understanding](https://csc8830-week5-clipcheck.streamlit.app) |
+| Module 6 | [Optical Flow and SfM](https://csc8830-module6-optical-flow-sfm.streamlit.app) |
 
 The Week 5 app reads `GEMINI_API_KEY` from its Streamlit Secrets settings.
 

@@ -2,6 +2,10 @@
 
 This project demonstrates dense optical flow and two-frame point tracking on two videos, then estimates camera poses and triangulates a planar checkerboard from four views. It is built around the assignment's required motion evidence and multi-view geometry.
 
+## Live demo
+
+[Open the Module 6 Streamlit app](https://csc8830-module6-optical-flow-sfm.streamlit.app).
+
 ## Run the demo
 
 Use Python 3.10 or newer. From this folder:
