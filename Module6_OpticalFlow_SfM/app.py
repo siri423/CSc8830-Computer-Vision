@@ -77,9 +77,10 @@ for number, tab in enumerate(tabs[:2], start=1):
             st.caption(f"Bilinear grayscale sample at the first tracked subpixel location: {pair_stats['bilinear_gray_at_tracked_point']:.2f} on a 0 to 255 scale.")
             track_id = st.selectbox("Choose a track to validate by eye", df.track_id.tolist(), key=f"manual_track_{number}")
             selected = df.loc[df.track_id == track_id].iloc[0]
+            st.caption("Find this same track label in Frame B and enter its visible pixel coordinates. X increases to the right; y increases downward. Read the image rather than copying the predicted table values.")
             mx, my = st.columns(2)
-            observed_x = mx.number_input("Observed x in frame B (pixels)", value=float(selected.x1_px), key=f"obs_x_{number}")
-            observed_y = my.number_input("Observed y in frame B (pixels)", value=float(selected.y1_px), key=f"obs_y_{number}")
+            observed_x = mx.number_input("Observed x in frame B (pixels)", value=float(selected.x1_px), key=f"obs_x_{number}_{track_id}")
+            observed_y = my.number_input("Observed y in frame B (pixels)", value=float(selected.y1_px), key=f"obs_y_{number}_{track_id}")
             endpoint_error = float(np.hypot(observed_x-selected.x1_px, observed_y-selected.y1_px))
             st.write(f"Endpoint error against the manually entered location: **{endpoint_error:.2f} px**. Set the observed coordinates by zooming into the annotated pair and reading the pixel location; the default equals the prediction and is not an independent measurement.")
             st.download_button("Download tracked pixel coordinates", df.to_csv(index=False).encode(), f"video{number}_tracking.csv", "text/csv", key=f"download_tracks_{number}")
