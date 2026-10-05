@@ -13,9 +13,9 @@ import streamlit as st
 
 from src.vision import dense_flow_video, four_view_planar_sfm, track_consecutive_pair, video_info
 
-st.set_page_config(page_title="Assignment 6 | Motion and SfM", page_icon="🎥", layout="wide")
+st.set_page_config(page_title="Assignment 6 | Motion and SfM", layout="wide")
 st.title("Assignment 6: Motion and Structure from Motion")
-st.caption("Dense optical flow · two-frame Lucas–Kanade tracking · four-view planar reconstruction")
+st.caption("Dense optical flow, two-frame Lucas-Kanade tracking, and four-view planar reconstruction")
 st.info("Use two videos of at least 30 seconds each. The optical-flow videos below show the input and its computed motion field side by side.")
 
 with st.expander("Equations used in this demonstration", expanded=False):
@@ -23,7 +23,7 @@ with st.expander("Equations used in this demonstration", expanded=False):
 **Brightness constancy:** a moving image point keeps approximately the same intensity:
 \(I(x,y,t)=I(x+u\Delta t,y+v\Delta t,t+\Delta t)\).
 Using a first-order Taylor expansion gives the optical-flow constraint
-\(I_xu+I_yv+I_t=0\). One equation has two unknowns, so Lucas–Kanade assumes nearby points have similar motion and solves a local least-squares system
+\(I_xu+I_yv+I_t=0\). One equation has two unknowns, so Lucas-Kanade assumes nearby points have similar motion and solves a local least-squares system
 \(\mathbf d=(A^TA)^{-1}A^T\mathbf b\), where \(\mathbf d=[u,v]^T\).
 
 **Bilinear interpolation:** for a subpixel point \((x_0+\alpha,y_0+\beta)\), interpolate the four neighbouring pixels:
@@ -38,17 +38,17 @@ st.header("A. Optical flow and tracking")
 tabs = st.tabs(["Video 1", "Video 2", "Four-view SfM"])
 for number, tab in enumerate(tabs[:2], start=1):
     with tab:
-        up = st.file_uploader(f"Choose video {number}", type=["mp4", "mov", "avi", "mkv", "webm"], key=f"video_{number}")
+        up = st.file_uploader(f"Choose video {number}", type=["mp4", "mov", "avi", "mkv", "webm"], key=f"video_{number}", help="Use a video under 20 MB. The prepared MP4 copies fit the upload limit.")
         if up:
             raw = up.getvalue(); suffix = "." + up.name.rsplit(".",1)[-1].lower()
             try:
                 info = video_info(raw, suffix)
-                st.write(f"{info['duration']:.1f} s · {info['width']} × {info['height']} · {info['fps']:.2f} fps")
+                st.write(f"{info['duration']:.1f} s, {info['width']} by {info['height']} pixels, {info['fps']:.2f} fps")
                 if info["duration"] < 30:
                     st.error("The assignment requires at least 30 seconds of motion in each video. This file is too short.")
                 else:
                     last_pair_time = max(0.0, info["duration"] - 1.0 / info["fps"])
-                    tracking_time = st.slider("Choose when to check two adjacent frames", 0.0, float(last_pair_time),
+                    tracking_time = st.slider("Choose when to check a frame and the next distinct image", 0.0, float(last_pair_time),
                                                min(1.0, float(last_pair_time)), 0.5, key=f"tracking_time_{number}")
                 if info["duration"] >= 30 and st.button(f"Analyze video {number}", type="primary", key=f"run_{number}"):
                     with st.spinner("Computing Farneback flow and tracking distinct frames…"):
@@ -71,10 +71,10 @@ for number, tab in enumerate(tabs[:2], start=1):
         if pair_data:
             pair_img, tracks, pair_stats = pair_data
             st.subheader("Tracking between two distinct frames")
-            st.image(pair_img, caption=f"Lucas–Kanade tracks from {pair_stats['frame_time_seconds']:.3f}s to {pair_stats['second_frame_time_seconds']:.3f}s. Repeated identical frames are skipped when present.", use_container_width=True)
+            st.image(pair_img, caption=f"Lucas-Kanade tracks from {pair_stats['frame_time_seconds']:.3f}s to {pair_stats['second_frame_time_seconds']:.3f}s. Repeated identical frames are skipped when present.", use_container_width=True)
             df = pd.DataFrame(tracks)
             st.dataframe(df[["track_id","x0_px","y0_px","x1_px","y1_px","dx_px","dy_px","displacement_px"]].round(2), use_container_width=True, hide_index=True)
-            st.caption(f"Bilinear grayscale sample at the first tracked subpixel location: {pair_stats['bilinear_gray_at_tracked_point']:.2f} (0–255).")
+            st.caption(f"Bilinear grayscale sample at the first tracked subpixel location: {pair_stats['bilinear_gray_at_tracked_point']:.2f} on a 0 to 255 scale.")
             track_id = st.selectbox("Choose a track to validate by eye", df.track_id.tolist(), key=f"manual_track_{number}")
             selected = df.loc[df.track_id == track_id].iloc[0]
             mx, my = st.columns(2)
@@ -127,7 +127,7 @@ with tabs[2]:
         for i,p in enumerate(cameras): ax.text(*p,f" C{i+1}")
         ax.set_xlabel("X (mm)");ax.set_ylabel("Y (mm)");ax.set_zlabel("Z (mm)");ax.legend();st.pyplot(fig);plt.close(fig)
         st.dataframe(pd.DataFrame(cameras,columns=["camera_x_mm","camera_y_mm","camera_z_mm"]).round(2),hide_index=True)
-        st.caption("The checkerboard’s known square spacing sets the metric reference. These camera poses and triangulated points are an educational planar reconstruction, not a general-purpose SfM benchmark.")
+        st.caption("The checkerboard's known square spacing sets the metric reference. These camera poses and triangulated points demonstrate reconstruction of a calibrated planar target.")
         st.download_button("Download reconstructed 3D points",pd.DataFrame(pts,columns=["X_mm","Y_mm","Z_mm"]).to_csv(index=False).encode(),"sfm_points.csv","text/csv")
 
 st.divider()

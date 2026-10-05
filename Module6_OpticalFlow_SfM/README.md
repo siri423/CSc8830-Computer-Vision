@@ -28,7 +28,7 @@ The calibration was previously estimated from the same phone images with 0.722 p
 
 ## Video analysis evidence
 
-Two continuous motion clips were analyzed locally for this assignment: a 35.83-second unpacking and assembly scene and a 45.05-second road-traffic scene. The first 30 seconds of each clip were used to create the dense-flow visualizations. Their source videos and generated video files remain in the local working folder and are not included in this public repository. The numeric summary records the processing durations, track counts, pixel displacements, and bilinear samples. The tracker skips repeated images in the 60 fps captures before estimating motion between distinct frames.
+Two continuous motion clips were analyzed locally for this assignment: a 35.83-second unpacking and assembly scene and a 45.03-second road-traffic scene. The first 30 seconds of each clip were used to create the dense-flow visualizations. The upload-ready copies are each under the repository app limit of 20 MB. Source recordings and generated flow videos remain in the local working folder and are not included in this public repository. The numeric summary records the processing durations, track counts, pixel displacements, and bilinear samples. The tracker skips repeated images in the 60 fps captures before estimating motion between distinct frames.
 
 ## References
 
