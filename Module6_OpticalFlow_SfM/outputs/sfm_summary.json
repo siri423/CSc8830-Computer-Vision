@@ -1,0 +1,57 @@
+{
+  "images": [
+    "view_01_calib_05.jpeg",
+    "view_02_calib_06.jpeg",
+    "view_03_calib_09.jpeg",
+    "view_04_calib_11.jpeg"
+  ],
+  "detected_grid": [
+    9,
+    6
+  ],
+  "square_size_mm": 25.0,
+  "calibration_reprojection_rms_px": 0.7220063206864794,
+  "triangulated_points": 114,
+  "triangulated_point_count_per_adjacent_pair": [
+    {
+      "view_pair": "1-2",
+      "corners": 34
+    },
+    {
+      "view_pair": "2-3",
+      "corners": 43
+    },
+    {
+      "view_pair": "3-4",
+      "corners": 37
+    }
+  ],
+  "expected_planar_boundary_mm": [
+    200.0,
+    125.0
+  ],
+  "triangulated_bounds_mm": {
+    "x": [
+      -0.2738439738750458,
+      200.36500549316406
+    ],
+    "y": [
+      -0.15272735059261322,
+      125.73865509033203
+    ],
+    "z": [
+      -6.530405521392822,
+      4.093038558959961
+    ]
+  },
+  "boundary_extent_mm": [
+    200.6388494670391,
+    125.89138244092464
+  ],
+  "extent_error_mm": [
+    0.6388494670391083,
+    0.8913824409246445
+  ],
+  "z_range_mm": 10.623444080352783,
+  "method": "Calibrated planar reconstruction: solvePnP poses from known grid; undistort matched corners and triangulate adjacent views."
+}

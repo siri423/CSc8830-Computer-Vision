@@ -1,0 +1,3 @@
+video_id,clip_description,pair_start_seconds,pair_end_seconds,track_id,feature_description,predicted_x1_px,predicted_y1_px,manual_reference_x1_px,manual_reference_y1_px,endpoint_error_px,reference_precision
+1,Person unpacking and assembly,12.0,12.033333333333333,49,box/hand boundary feature,301.8959655761719,290.5513916015625,302,291,0.460513470476064,Approximate manual visual read from enlarged Frame B; not independent ground truth
+2,Continuous road traffic,15.0,15.033333333333333,6,vehicle body edge,361.281982421875,303.93768310546875,361,304,0.28878622126152315,Approximate manual visual read from enlarged Frame B; not independent ground truth

@@ -14,12 +14,17 @@ Author: Sirichandana Bikkasani
 | 3 | Image blurring: spatial filtering vs the Fourier domain | [Module3_ImageFiltering](Module3_ImageFiltering) |
 | 4 | Finding the boundary of a human in RGB and thermal images | [Module4_HumanSegmentation](Module4_HumanSegmentation) |
 | 5 | Finding a person in a video with Gemini | [Week5_Challenge](Week5_Challenge) |
+| 6 | Optical flow, two-frame tracking, and planar multi-view reconstruction | [Module6_OpticalFlow_SfM](Module6_OpticalFlow_SfM) |
 
 Each project folder has a README and a Streamlit app. Reports and presentations
 are included where the assignment calls for them.
 
 Week 5 includes a three-slide presentation, a project report, and a Streamlit
 prototype that uses the Gemini API. See the [Week 5 folder](Week5_Challenge).
+
+Module 6 includes a Streamlit demonstration, four calibrated checkerboard views,
+and the report and analysis outputs for optical flow and multi-view geometry.
+See [Module 6](Module6_OpticalFlow_SfM) for setup and required video inputs.
 
 ## Live web apps
 

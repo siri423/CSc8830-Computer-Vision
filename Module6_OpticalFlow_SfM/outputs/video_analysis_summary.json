@@ -1,0 +1,72 @@
+{
+  "1": {
+    "source_description": "Person unpacking and assembling a box item",
+    "source_duration_seconds": 35.833333333333336,
+    "source_resolution": [
+      1834,
+      888
+    ],
+    "optical_flow_analyzed_seconds": 30.0,
+    "flow_visualization_duration_seconds": 30.0,
+    "flow_output_frames": 300,
+    "flow_output_fps": 10.0,
+    "median_dense_flow_pixels_per_sample": 0.023619841784238815,
+    "mean_sampled_median_flow_pixels": 0.3245914900551992,
+    "flow_sample_count": 300,
+    "tracking_pair_start_seconds": 12.0,
+    "tracking_pair_end_seconds": 12.033333333333333,
+    "tracking_pair_fps": 60.0,
+    "tracking_pair_frame_gap": 2,
+    "tracked_points": 80,
+    "median_track_displacement_pixels": 0.00018087237392332023,
+    "mean_track_displacement_pixels": 0.056412927122624454,
+    "maximum_track_displacement_pixels": 3.921708462630147,
+    "bilinear_gray_sample": 167.0,
+    "manual_validation": {
+      "track_id": 49,
+      "description": "box/hand boundary feature",
+      "predicted_x1_px": 301.8959655761719,
+      "predicted_y1_px": 290.5513916015625,
+      "manual_reference_x1_px": 302,
+      "manual_reference_y1_px": 291,
+      "endpoint_error_px": 0.460513470476064,
+      "reference_is_approximate": true
+    },
+    "mean_p90_flow_pixels_per_sample": 0.8817045278971809
+  },
+  "2": {
+    "source_description": "Continuous road traffic",
+    "source_duration_seconds": 45.05,
+    "source_resolution": [
+      1834,
+      822
+    ],
+    "optical_flow_analyzed_seconds": 30.0,
+    "flow_visualization_duration_seconds": 30.0,
+    "flow_output_frames": 300,
+    "flow_output_fps": 10.0,
+    "median_dense_flow_pixels_per_sample": 0.01341804675757885,
+    "mean_sampled_median_flow_pixels": 0.026074725324264043,
+    "flow_sample_count": 300,
+    "tracking_pair_start_seconds": 15.0,
+    "tracking_pair_end_seconds": 15.033333333333333,
+    "tracking_pair_fps": 60.0,
+    "tracking_pair_frame_gap": 2,
+    "tracked_points": 80,
+    "median_track_displacement_pixels": 0.047434187773001894,
+    "mean_track_displacement_pixels": 0.4398041812213541,
+    "maximum_track_displacement_pixels": 9.642196185842622,
+    "bilinear_gray_sample": 144.37287124991417,
+    "manual_validation": {
+      "track_id": 6,
+      "description": "vehicle body edge",
+      "predicted_x1_px": 361.281982421875,
+      "predicted_y1_px": 303.93768310546875,
+      "manual_reference_x1_px": 361,
+      "manual_reference_y1_px": 304,
+      "endpoint_error_px": 0.28878622126152315,
+      "reference_is_approximate": true
+    },
+    "mean_p90_flow_pixels_per_sample": 2.61090804432372
+  }
+}
